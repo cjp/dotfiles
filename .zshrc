@@ -6,7 +6,8 @@ export ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="femtotech"
+# ZSH_THEME="femtotech"
+ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -86,18 +87,21 @@ alias traceroute="traceroute -A whois.arin.net"
 # brewed rbenv
 export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-# eval "$(dvm env)"
 
 alias rake="noglob rake"
 
 eval `/usr/libexec/path_helper -s`
-eval "$(rbenv init -)"
 
 # golang
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+export PYENV_ROOT=/usr/local/var/pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 PERL_MB_OPT="--install_base \"/Users/cjp/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/cjp/perl5"; export PERL_MM_OPT;
+
+if [[ -f ~/.zshrc-private ]]; then
+  . ~/.zshrc-private
+fi

@@ -3,6 +3,7 @@ set spoolfile = +INBOX
 set postponed = "+[Gmail]/Drafts"
 set ssl_starttls=yes
 set record=""
+bind  editor <space> noop
 macro index,pager y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive"
 macro index,pager d "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive"
 macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"

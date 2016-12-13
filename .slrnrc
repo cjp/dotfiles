@@ -1,0 +1,8 @@
+include ".slrnrc-private"
+set signature ".signature"
+charset display utf8
+charset outgoing utf8
+set mouse 1
+set macro_directory "/usr/local/share/slrn/slang,/usr/share/slsh,.slrn-macros"
+interpret "mime.sl"
+set use_metamail 0

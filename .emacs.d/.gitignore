@@ -1,0 +1,10 @@
+ido.last
+desktop.ini
+*~
+elpa/*
+server/*
+auto-save-list/*
+backups/*
+custom.el
+\#*
+.#*

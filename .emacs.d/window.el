@@ -2,7 +2,7 @@
   (set-face-attribute 'default nil
                     :family "Source Code Pro"
                     :height 120
-                    :weight 'extra-light
+                    :weight 'light
                     :width 'normal)
   (load-theme 'hc-zenburn t)
   (add-to-list 'default-frame-alist '(height . 50))

@@ -11,7 +11,7 @@ if [[ -f $ZSH/oh-my-zsh.sh ]]; then
 fi
 
 # environment variables
-export PATH="${HOME}/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="${PATH}:${HOME}/bin:/usr/local/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
 export EDITOR='nvim'

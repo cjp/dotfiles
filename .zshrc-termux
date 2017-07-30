@@ -1,0 +1,40 @@
+# .zshrc-termux
+
+# if we are running in a chroot, and sshd isn't running, run it
+parent="$(ps -opid= -ocomm= | grep $PPID | sed 's/[0-9 ]\{0,\}//')"
+if [ "$parent" = "proot" ]; then
+  echo "Running in a proot!"
+  
+  if ! pgrep "sshd" >/dev/null ; then
+    echo "[Starting sshd...]" && sshd && echo "[OK]";
+  else
+    echo "[sshd is already running]";
+  fi
+else
+  # not running under proot
+  # if chroot isn't running, run it
+  if ! pgrep -f "termux-chroot" >/dev/null ; then
+    echo "[Starting chroot...]"
+    termux-chroot
+  else
+    echo "[chroot is running]"
+  fi
+fi
+  
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+  SESSION_TYPE=remote/ssh
+else
+  case $(ps -opid= -ocomm= | grep $PPID | sed 's/[0-9 ]\{0,\}//') in
+    sshd|*/sshd) SESSION_TYPE=remote/ssh;;
+  esac
+fi
+
+if [ "$SESSION_TYPE" != "remote/ssh" ]; then
+  echo "Not running under sshd; not executing zshrc."
+  return 0;
+fi
+
+# back to our normally scheduled program
+if [[ -f ~/.zshrc-standard ]]; then
+  . ~/.zshrc-standard
+fi

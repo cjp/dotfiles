@@ -29,7 +29,13 @@ Return a list of installed packages or nil for every skipped package."
 (or (file-exists-p package-user-dir)
     (package-refresh-contents))
 
-(ensure-package-installed 'hc-zenburn-theme 'magit 'groovy-mode 'markdown-mode 'evil)
+(ensure-package-installed 'solarized-theme
+			  'hc-zenburn-theme
+			  'magit
+			  'groovy-mode
+			  'markdown-mode
+			  'json-mode
+			  'evil)
 
 ;; activate installed packages
 (package-initialize)

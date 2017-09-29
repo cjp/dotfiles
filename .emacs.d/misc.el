@@ -60,6 +60,7 @@
      (set-face-foreground 'diff-removed "red3")))
 
 (add-to-list 'auto-mode-alist '("Jenkinsfile\\'" . groovy-mode))
+(add-to-list 'auto-mode-alist '("\\.amber\\'" . jade-mode))
 
 (server-start)
 
@@ -68,3 +69,5 @@
           request-backend 'curl)
     (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
 )
+
+(add-hook 'before-save-hook 'gofmt-before-save)

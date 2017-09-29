@@ -35,7 +35,16 @@ Return a list of installed packages or nil for every skipped package."
 			  'groovy-mode
 			  'markdown-mode
 			  'json-mode
+                          'go-mode
+                          'auto-complete
 			  'evil)
 
 ;; activate installed packages
 (package-initialize)
+
+;; activate go-autocomplete
+(when (file-exists-p "~/go/src/github.com/nsf/gocode/emacs/")
+  (add-to-list 'load-path "~/go/src/github.com/nsf/gocode/emacs/")
+  (require 'go-autocomplete)
+  (require 'auto-complete-config)
+  (ac-config-default))

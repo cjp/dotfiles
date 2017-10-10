@@ -68,3 +68,8 @@
           request-backend 'curl)
     (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
 )
+
+(add-to-list 'load-path (expand-file-name "~/go/src/github.com/nsf/gocode/emacs/"))
+(require 'go-autocomplete)
+(require 'auto-complete-config)
+(ac-config-default)

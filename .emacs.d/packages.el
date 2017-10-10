@@ -30,12 +30,22 @@ Return a list of installed packages or nil for every skipped package."
     (package-refresh-contents))
 
 (ensure-package-installed 'solarized-theme
-			  'hc-zenburn-theme
-			  'magit
-			  'groovy-mode
-			  'markdown-mode
-			  'json-mode
-			  'evil)
+                          'hc-zenburn-theme
+                          'magit
+                          'groovy-mode
+                          'markdown-mode
+                          'json-mode
+                          'go-mode
+                          'auto-complete
+                          'evil
+                          'ledger-mode)
 
 ;; activate installed packages
 (package-initialize)
+
+;; activate go-autocomplete
+(when (file-exists-p "~/go/src/github.com/nsf/gocode/emacs/")
+  (add-to-list 'load-path "~/go/src/github.com/nsf/gocode/emacs/")
+  (require 'go-autocomplete)
+  (require 'auto-complete-config)
+  (ac-config-default))

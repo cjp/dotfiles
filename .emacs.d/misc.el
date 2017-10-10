@@ -60,6 +60,7 @@
      (set-face-foreground 'diff-removed "red3")))
 
 (add-to-list 'auto-mode-alist '("Jenkinsfile\\'" . groovy-mode))
+(add-to-list 'auto-mode-alist '("\\.amber\\'" . jade-mode))
 
 (server-start)
 
@@ -73,3 +74,4 @@
 (require 'go-autocomplete)
 (require 'auto-complete-config)
 (ac-config-default)
+(add-hook 'before-save-hook 'gofmt-before-save)

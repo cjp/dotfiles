@@ -6,7 +6,7 @@
 (when window-system
   (set-face-attribute 'default nil
                     :family "Source Code Pro"
-                    :height 120
+                    :height 150
                     :weight 'light
                     :width 'normal)
   (load-theme 'hc-zenburn t)

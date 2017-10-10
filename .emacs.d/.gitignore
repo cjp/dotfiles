@@ -8,3 +8,5 @@ backups/*
 custom.el
 \#*
 .#*
+network-security.data
+url/*

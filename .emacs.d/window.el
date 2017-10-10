@@ -1,3 +1,8 @@
+(unless window-system
+  (menu-bar-mode -1)
+  (load-theme 'solarized-dark t)
+  (custom-set-faces '(default ((t (:background "nil"))))))
+
 (when window-system
   (set-face-attribute 'default nil
                     :family "Source Code Pro"

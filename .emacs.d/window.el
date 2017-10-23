@@ -1,26 +1,32 @@
-(unless window-system
-  (menu-bar-mode -1)
-  (load-theme 'solarized-dark t)
-  (custom-set-faces '(default ((t (:background "nil"))))))
+(defun new-frame-setup (frame)
+  (if (display-graphic-p frame)
+      (progn
+        (set-face-attribute 'default nil
+                            :family "Fira Mono"
+                            :height 140
+                            :weight 'extra-light
+                            :width 'normal)
+        (load-theme 'sunburn t)
+        (add-to-list 'default-frame-alist '(height . 50))
+        (add-to-list 'default-frame-alist '(width . 82))
+        (set-frame-position (selected-frame) 0 0)
+        (set-frame-size (selected-frame) 82 50)
+        (tooltip-mode -1)
+        (tool-bar-mode -1)
+        (menu-bar-mode -1)
+        (toggle-scroll-bar -1)
+        (setq frame-title-format '(buffer-file-name "%f" ("%b")))
+        (blink-cursor-mode -1)
+        (when (require 'mwheel nil 'no-error) (mouse-wheel-mode t)))
+    (progn 
+      (menu-bar-mode -1)
+      (load-theme 'solarized-dark t)
+      (custom-set-faces '(default ((t (:background "nil"))))))))
+
+(add-hook 'after-make-frame-functions 'new-frame-setup)
 
 (when window-system
-  (set-face-attribute 'default nil
-                    :family "Fira Mono"
-                    :height 120
-                    :weight 'light
-                    :width 'normal)
-  (load-theme 'hc-zenburn t)
-  (add-to-list 'default-frame-alist '(height . 50))
-  (add-to-list 'default-frame-alist '(width . 82))
-  (set-frame-position (selected-frame) 0 0)
-  (set-frame-size (selected-frame) 82 50)
-  (tooltip-mode -1)
-  (tool-bar-mode -1)
-  (menu-bar-mode -1)
-  (toggle-scroll-bar -1)
-  (setq frame-title-format '(buffer-file-name "%f" ("%b")))
-  (blink-cursor-mode -1)
-  (when (require 'mwheel nil 'no-error) (mouse-wheel-mode t)))
+  (mapc 'new-frame-setup (frame-list)))
 
 ;;; Fira code
 ;; This works when using emacs --daemon + emacsclient

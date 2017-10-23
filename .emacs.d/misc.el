@@ -67,11 +67,24 @@
 (when (eq system-type 'windows-nt)
     (setq request-curl "~/curl-7.53.1-win64-mingw/bin/curl"
           request-backend 'curl)
-    (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
-)
+    (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/"))
 
 (add-to-list 'load-path (expand-file-name "~/go/src/github.com/nsf/gocode/emacs/"))
 (require 'go-autocomplete)
 (require 'auto-complete-config)
 (ac-config-default)
-(add-hook 'before-save-hook 'gofmt-before-save)
+
+(unless (eq system-type 'windows-nt)
+    (add-to-list 'exec-path "/usr/local/go/bin/")
+    (add-to-list 'exec-path "~/go/bin/")
+    (add-hook 'before-save-hook #'gofmt-before-save)
+    (defun set-exec-path-from-shell-PATH ()
+      (let ((path-from-shell (replace-regexp-in-string
+                              "[ \t\n]*$"
+                              ""
+                              (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
+        (setenv "PATH" path-from-shell)
+        (setq eshell-path-env path-from-shell) ; for eshell users
+        (setq exec-path (split-string path-from-shell path-separator))))
+    (when window-system (set-exec-path-from-shell-PATH))
+    (setenv "GOPATH" "/home/cjp/go"))

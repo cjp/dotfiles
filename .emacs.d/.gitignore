@@ -10,3 +10,4 @@ custom.el
 .#*
 network-security.data
 url/*
+ac-comphist.dat

@@ -14,12 +14,12 @@ fi
 export PATH="${PATH}:${HOME}/bin:/usr/local/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
-export EDITOR='nvim'
+export EDITOR=~/bin/edit
 export NNTPSERVER='news.gmane.org'
 
 # aliases
-alias vi="nvim"
 alias traceroute="traceroute -A whois.arin.net"
+alias vi="edit"
 
 # ruby
 export RBENV_ROOT=/usr/local/var/rbenv
@@ -32,7 +32,7 @@ fi
 
 # golang
 export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
 
 # python
 export PYENV_ROOT=/usr/local/var/pyenv
@@ -54,3 +54,7 @@ fi
 if [ $WINDOWS10 ]; then
           export LC_WINDOWS10=$WINDOWS10
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

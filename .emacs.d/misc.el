@@ -88,3 +88,18 @@
         (setq exec-path (split-string path-from-shell path-separator))))
     (when window-system (set-exec-path-from-shell-PATH))
     (setenv "GOPATH" "/home/cjp/go"))
+
+;; Set to the location of your Org files on your local system
+(setq org-directory "~/org")
+;; Set to the name of the file where new notes will be stored
+(setq org-mobile-inbox-for-pull "~/org/flagged.org")
+;; Set to <your Dropbox root directory>/MobileOrg.
+(setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
+
+(setq org-journal-dir "~/org/journal")
+(require 'org-journal)
+
+(setq org-agenda-files '())
+(add-to-list 'org-agenda-files (expand-file-name "~/org"))
+(add-to-list 'org-agenda-files (expand-file-name "~/org/journal"))
+(setq org-agenda-file-regexp "\\`[^.].*\\.org\\'\\|\\`[0-9]+\\'")

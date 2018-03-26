@@ -1,6 +1,6 @@
 export ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="agnoster"
+ZSH_THEME="robbyrussell"
 DISABLE_AUTO_UPDATE="true"
 # export UPDATE_ZSH_DAYS=13
 ZSH_CUSTOM=~/.oh-my-custom
@@ -23,7 +23,7 @@ alias vi="edit"
 
 # ruby
 export RBENV_ROOT=/usr/local/var/rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if which rbenv 2>/dev/null; then eval "$(rbenv init -)"; fi
 alias rake="noglob rake"
 
 if [[ -f /usr/libexec/path_helper ]]; then
@@ -36,7 +36,7 @@ export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
 
 # python
 export PYENV_ROOT=/usr/local/var/pyenv
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv 2>/dev/null; then eval "$(pyenv init -)"; fi
 
 # perl
 PERL_MB_OPT="--install_base \"${HOME}/perl5\""; export PERL_MB_OPT;
@@ -58,3 +58,5 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+TZ='America/New_York'; export TZ

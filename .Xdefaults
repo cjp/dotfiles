@@ -22,7 +22,7 @@ URxvt.fading:               0
 ! URxvt.urgentOnBell:         true
 ! URxvt.visualBell:           true
 URxvt.loginShell:           true
-URxvt.saveLines:            50
+URxvt.saveLines:            5000
 URxvt.internalBorder:       3
 URxvt.lineSpace:            0
 
@@ -31,8 +31,8 @@ URxvt.secondaryScroll: 0
 URxvt.secondaryWheel: 1
 
 ! Fonts
-URxvt*font: xft:inconsolata:size=10:antialias=true,xft:DejaVu Sans:size=10:antialias=true,xft:Source Code Pro for Powerline:antialias=true:hinting=true:size=9
-URxvt*boldFont: xft:inconsolata:size=10:antialias=true,xft:DejaVu Sans:size=10:antialias=true,xft:Source Code Pro for Powerline:antialias=true:hinting=true:size=9
+URxvt*font: xft:inconsolata:size=11:antialias=true,xft:DejaVu Sans:size=11:antialias=true,xft:Source Code Pro for Powerline:antialias=true:hinting=true:size=11
+URxvt*boldFont: xft:inconsolata:size=11:antialias=true,xft:DejaVu Sans:size=11:antialias=true,xft:Source Code Pro for Powerline:antialias=true:hinting=true:size=11
 
 ! Fix font space
 URxvt*letterSpace: -1
@@ -81,7 +81,7 @@ URxvt.pointerBlank:         true
 *color11: #f0dfaf
 
 !! blue dark/light
-*color4: #474674
+*color4: #61609f
 *color12: #777694
 
 !! magenta dark/light

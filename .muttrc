@@ -7,5 +7,13 @@ bind pager <up> previous-line # scroll inside the message rather than the index
 bind pager <down> next-line
 set sleep_time = 0 # faster... faster...
 set smart_wrap
+set sort="threads"
+set strict_threads="yes"
+set sort_browser="reverse-date"
+set sort_aux="last-date-received"
+unset collapse_unread
+bind index - collapse-thread
+bind index _ collapse-all
+bind index G imap-fetch-mail
 source ~/.mutt/rcgmail
 source ~/.mutt/rcprivate

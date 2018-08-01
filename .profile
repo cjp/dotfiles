@@ -5,3 +5,7 @@ export LANG=en_US.UTF-8
 export EDITOR=~/bin/edit
 export NNTPSERVER='news.gmane.org'
 export TZ='America/New_York'
+# Things that shouldn't be shared
+if [[ -f ~/.profile-private ]]; then
+    . ~/.profile-private
+fi

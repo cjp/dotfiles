@@ -1,6 +1,6 @@
 set signature="~/.signature"
 set edit_headers=yes
-set editor='nvim + -c "setlocal wrapmargin=0 textwidth=0 wrap nocp linebreak nohlsearch" -c "?^$"'
+set editor="emacsclient -a \"\" -t"
 auto_view text/html
 alternative_order text/plain text/enriched text/html
 bind pager <up> previous-line # scroll inside the message rather than the index

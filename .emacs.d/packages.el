@@ -2,11 +2,9 @@
 
 (setq package-archives
       '(("gnu"         . "http://elpa.gnu.org/packages/")
-        ("melpa"       . "http://melpa.org/packages/")
-        ("marmalade"   . "http://marmalade-repo.org/packages/"))
+        ("melpa"       . "http://melpa.org/packages/"))
       package-archive-priorities
       '(("melpa" . 20)
-        ("marmalade" . 15)
         ("gnu" . 10))
       package-user-dir "~/.emacs.d/elpa")
 

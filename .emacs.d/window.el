@@ -2,8 +2,8 @@
   (if (display-graphic-p frame)
       (progn
         (set-face-attribute 'default nil
-                            :family "Fira Mono"
-                            :height 140
+                            :family "Source Code Pro"
+                            :height 125
                             :weight 'extra-light
                             :width 'normal)
         (load-theme 'sunburn t)
@@ -20,14 +20,17 @@
         (when (require 'mwheel nil 'no-error) (mouse-wheel-mode t)))
     (progn 
       (menu-bar-mode -1)
-      (load-theme 'solarized-dark t)
+      (load-theme 'sunburn t)
       (custom-set-faces '(default ((t (:background "nil"))))))))
 
 (add-hook 'after-make-frame-functions 'new-frame-setup)
 
-(when window-system
-  (mapc 'new-frame-setup (frame-list)))
+;; (when window-system
+;;  (mapc 'new-frame-setup (frame-list)))
+(mapc 'new-frame-setup (frame-list))
 
+(when window-system
+  
 ;;; Fira code
 ;; This works when using emacs --daemon + emacsclient
 (add-hook 'after-make-frame-functions (lambda (frame) (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Symbol")))
@@ -167,8 +170,9 @@
                              (horizontal-scroll-bars . nil))))
 (add-hook 'after-make-frame-functions 'my/disable-scroll-bars)
 
-(setq browse-url-browser-function 'browse-url-default-windows-browser)
+(setq browse-url-browser-function 'browse-url-default-macosx-browser)
 
+)
 ;; make the tilting scroll wheel cycle through buffers
 
 (defvar *my-previous-buffer* t
@@ -208,4 +212,16 @@
 (setq w32-pass-apps-to-system nil)
 (setq w32-apps-modifier 'hyper) ; Menu/App key
 
-
+;; Enable mouse support
+(unless window-system
+  (require 'mouse)
+  (xterm-mouse-mode t)
+  (global-set-key [mouse-4] (lambda ()
+                              (interactive)
+                              (scroll-down 1)))
+  (global-set-key [mouse-5] (lambda ()
+                              (interactive)
+                              (scroll-up 1)))
+  (defun track-mouse (e))
+  (setq mouse-sel-mode t)
+)

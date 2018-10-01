@@ -6,7 +6,8 @@
                             :height 125
                             :weight 'extra-light
                             :width 'normal)
-        (load-theme 'sunburn t)
+        (load-theme 'spacemacs-light t)
+        ;; (load-theme 'leuven t)
         (add-to-list 'default-frame-alist '(height . 50))
         (add-to-list 'default-frame-alist '(width . 82))
         (set-frame-position (selected-frame) 0 0)
@@ -20,7 +21,8 @@
         (when (require 'mwheel nil 'no-error) (mouse-wheel-mode t)))
     (progn 
       (menu-bar-mode -1)
-      (load-theme 'sunburn t)
+      (load-theme 'spacemacs-light t)
+      ;; (load-theme 'leuven t)
       (custom-set-faces '(default ((t (:background "nil"))))))))
 
 (add-hook 'after-make-frame-functions 'new-frame-setup)

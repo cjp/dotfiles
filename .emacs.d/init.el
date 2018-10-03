@@ -30,7 +30,6 @@
     (load-user-file "misc.el")
     (load-user-file "window.el")
     (load-user-file "spell.el")
-    ;;(load-user-file "evil.el")
     ;;(load-user-file "ledger.el")
     (when (file-exists-p custom-file)
       (load custom-file :noerror :nomessage))))
